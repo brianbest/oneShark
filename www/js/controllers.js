@@ -1,18 +1,28 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', ['$scope','Money',function($scope,Money) {
+.controller('DashCtrl', ['$scope','$interval','Animal',function($scope,$interval,Animal) {
+      // If anamals exist then do happyness checks 30 sec
+      $interval(happyCheck(),30000);
 
-      $scope.money = Money.totalNow();
+      //If Anamals then do food consumtion
 
-      $scope.lowerMoney = function(x){
-        Money.lowerValue(x);
-        $scope.money = Money.totalNow();
-      };
+      //After 5 seconds check to generate customer
+      $interval(customerCheck(),5000);
 
-      $scope.addMoney = function(x){
-        Money.addValue(x);
-        $scope.money = Money.totalNow();
-      };
+      function happyCheck(){
+        //get all the animals
+        //loop through all animals
+          //if food is available animal consumes food
+          //else if food is not available, noFoodHappyness modifer applied
+          //loop owned lux item list
+            //if lux item at index is appart of animal lux list add happyness modifier
+          //if animal has a required list do loop
+            //loop animal required list
+              //if park has animal required add modifier
+            //if modifer doesn't exist then add subtraction modifier
+          //run happyness equation
+          //if happiness is below x value remove this animal from the game and alert player.
+      }
 
     }])
 
