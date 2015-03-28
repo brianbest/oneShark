@@ -18,11 +18,28 @@ angular.module('starter.controllers', ['starter.services'])
 
 
       $interval(happyCheck,5000);
-
       $interval(customerCheck,1000);
 
+      //Buttons
 
+      $scope.buyFood = function(){
+        Money.lowerValue(100);
+        $scope.money = Money.totalNow();
+      };
 
+      $scope.buyAnimal = function(kind,value){
+        if(value > $scope.money){
+          alert('not enough money!');
+        }else{
+          Animal.addAnimals(kind);
+          $scope.ownedAnimals = Animal.ownedAnimals();
+          Money.lowerValue(value);
+          $scope.money = Money.totalNow();
+        }
+
+      };
+
+      //Loop functions
 
       function customerCheck(){
         console.log('running');
@@ -39,6 +56,9 @@ angular.module('starter.controllers', ['starter.services'])
           $scope.totalCustomer++;
           Money.addValue(30);
           $scope.money = Money.totalNow();
+        }
+        if($scope.money < 1){
+          alert('end of game');
         }
       }
 
