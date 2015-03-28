@@ -1,27 +1,32 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
     <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
+      <div class="item item-divider">Your Supply</div>
       <div class="item item-body">
         <div>
-          There is a fire in <b>sector 3</b>
+          <p>Money is : {{money}}</p>
+          <p>Food is : {{totalFood}}</p>
+          <p>Total Customers : {{totalCustomer}}</p>
+          <p>Coolness : {{overallCool}}</p>
         </div>
       </div>
     </div>
     <div class="list card">
-      <div class="item item-divider">Money is : {{money}}</div>
+      <div class="item item-divider">Your Zoo</div>
       <div class="item item-body">
-        <div>
-          <button ng-click="addMoney(100)">Add money</button>
-          <button ng-click="lowerMoney(100)">Take money</button>
-        </div>
+        <p ng-repeat="animal in ownedAnimals track by $index"> {{animal.name}} - Happy = {{animal.happiness}}</p>
+        <hr>
+        <h6>Lux Items</h6>
+        <p ng-repeat="lux in luxItems"> {{lux}}</p>
       </div>
     </div>
     <div class="list card">
-      <div class="item item-divider">Upcoming</div>
+      <div class="item item-divider">Actions</div>
       <div class="item item-body">
         <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
+         <button>Buy more food ($100)</button>
+         <button>Buy Pig ($100)</button>
+         <button>Buy Penguin ($1000)</button>
         </div>
       </div>
     </div>

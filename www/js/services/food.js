@@ -6,14 +6,12 @@ angular.module('starter.services', [])
         return {
             totalFood : function(){
                 return food
-            },
-            addFood : function(value){
-                food = food + value;
-            },
-            removeFood : function(value){
-                food = food - value;
             }
         };
 
 
     });
+//
+//addFood : function(value){
+//    food = food + value;
+//},
